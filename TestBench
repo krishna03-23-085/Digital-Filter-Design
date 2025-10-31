@@ -1,0 +1,48 @@
+//=============================
+// Testbench for FIR Filter
+//=============================
+`timescale 1ns/1ps
+module testbench;
+
+    reg clk;
+    reg reset;
+    reg signed [7:0] x_in;
+    wire signed [15:0] y_out;
+
+    // Instantiate FIR filter
+    fir_filter uut (
+        .clk(clk),
+        .reset(reset),
+        .x_in(x_in),
+        .y_out(y_out)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    initial begin
+        // VCD dump for waveform
+        $dumpfile("dump.vcd");
+        $dumpvars(0, testbench);
+
+        // Initialize
+        clk = 0;
+        reset = 1;
+        x_in = 0;
+        #10;
+        reset = 0;
+
+        // Apply input samples (step signal)
+        #10 x_in = 8'd5;
+        #10 x_in = 8'd10;
+        #10 x_in = 8'd15;
+        #10 x_in = 8'd20;
+        #10 x_in = 8'd25;
+        #10 x_in = 8'd0;
+        #10 x_in = 8'd0;
+        #20;
+
+        $finish;
+    end
+
+endmodule
