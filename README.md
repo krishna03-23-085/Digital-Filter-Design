@@ -73,3 +73,6 @@ The task of designing and simulating a Digital Filter using Verilog HDL was succ
 
 This experiment strengthened the understanding of FIR filter implementation, coefficient-based processing, and hardware-based signal manipulation. The successful simulation output verified that the Verilog code correctly represents the digital filter’s working and timing behavior. Overall, the experiment effectively bridges theoretical signal processing concepts with practical digital design and simulation skills
 
+#Result
+
+<img width="1440" height="855" alt="Image" src="https://github.com/user-attachments/assets/33084144-2aa4-46ea-8dce-b3175cbaf006" />
